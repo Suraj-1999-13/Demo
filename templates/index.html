@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Language Recognition System</title>
+    <!-- <link rel="stylesheet" href="\static\style.css" />-->
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+    body {
+      background: black;
+    }
+    #nav {
+      text-align: center;
+      color: rgb(247, 247, 247);
+      background: rgb(52, 52, 53);
+      font-size: 1.5rem;
+      padding: 2rem;
+      margin: 0.5rem;
+      border: 2px solid whitesmoke;
+      border-radius: 8px;
+    }
+
+    .main {
+      padding: 1rem;
+      width: 98.4%;
+      margin: 1rem;
+      height: 40rem;
+      display: flex;
+    }
+
+    #web {
+      height: 38rem;
+      width: 40%;
+    }
+
+    #roi {
+      margin-left: 0.8rem;
+      height: 38rem;
+      width: 25%;
+    }
+
+    #out {
+      margin-left: 0.8rem;
+      border: 2px solid whitesmoke;
+      padding: 1rem;
+      height: 38rem;
+      width: 34%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h3 {
+      border: 2px solid whitesmoke;
+      padding: 3px;
+      color: white;
+      margin: 6px;
+      height: 2.9rem;
+    }
+
+    footer {
+      border: 2px solid rgb(247, 246, 241);
+      padding: 1rem;
+      width: 98.4%;
+      margin: 1rem;
+      height: 25rem;
+    }
+  </style>
+
+  <body>
+    <nav id="nav">
+      <h2>Sign Language Recognition System</h2>
+    </nav>
+    <div class="main">
+      <!-- <div id="web"> -->
+      <video autoplay="true" id="web"></video>
+      <!-- </div> -->
+      <!-- <div id="roi"> -->
+      <!-- <video autoplay="true" id="roi"></video> -->
+      <!-- </div> -->
+      <div id="out">
+        <h3>FPS-</h3>
+        <h3></h3>
+        <h3>Predicted Word-</h3>
+        <h3>Predicted sentence-</h3>
+      </div>
+    </div>
+    <footer></footer>
+    <script>
+      var video = document.querySelector("#web");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+    </script>
+  </body>
+</html>
